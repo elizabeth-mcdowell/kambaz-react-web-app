@@ -7,7 +7,7 @@ export default function Labs() {
   return (
     <div>
       <h1>Labs</h1>
-      <h2>Elizabeth McDowell</h2>
+      <h2>Elizabeth McDowell - CS4550 02 Spring 2025</h2>
       <a href="https://github.com/elizabeth-mcdowell/kambaz-react-web-app.git" id="wd-github"> Github Repo </a>
       <TOC />
       <Routes>
