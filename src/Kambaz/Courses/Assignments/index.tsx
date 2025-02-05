@@ -63,7 +63,7 @@ export default function Assignments() {
                 </div>
               </div>
               <GreenCheckmark />
-              <AssignmentsControl />
+              <a href="#/Kambaz/Courses/1234/Assignments/1" className="wd-assignment-link">  <AssignmentsControl /></a>
             </ListGroup.Item>
 
             <ListGroup.Item className="wd-lesson p-3 ps-1 d-flex align-items-center">
@@ -78,7 +78,7 @@ export default function Assignments() {
                 </div>
               </div>
               <GreenCheckmark />
-              <AssignmentsControl />
+              <a href="#/Kambaz/Courses/1234/Assignments/2" className="wd-assignment-link">  <AssignmentsControl /></a>
             </ListGroup.Item>
 
             <ListGroup.Item className="wd-lesson p-3 ps-1 d-flex align-items-center">
@@ -94,7 +94,7 @@ export default function Assignments() {
                 </div>
               </div>
               <GreenCheckmark />
-              <AssignmentsControl />
+              <a href="#/Kambaz/Courses/1234/Assignments/3" className="wd-assignment-link">  <AssignmentsControl /></a>
             </ListGroup.Item>
 
           </ListGroup>
@@ -131,7 +131,7 @@ export default function Assignments() {
 //             </li>
 //             Multiple Modules | <b>Not available until</b> May 13 at 12:00am | <b>Due</b> May 20 at 11:59pm | 100pts
             
-            
+
             
             
 //             <li className="wd-assignment-list-item">

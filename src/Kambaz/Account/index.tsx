@@ -2,7 +2,7 @@ import Profile from "./Profile";
 import Signin from "./Signin";
 import { Routes, Route, Navigate } from "react-router";
 import Signup from "./Signup";
-import AccountNavigation from "./Navigation";
+//import AccountNavigation from "./Navigation";
 
 export default function Account() {
     return (
@@ -10,7 +10,7 @@ export default function Account() {
         <table>
           <tr>
             <td valign="top">
-              <AccountNavigation />
+            {/** <AccountNavigation />*/}  
             </td>
             <td valign="top">
               <Routes>
