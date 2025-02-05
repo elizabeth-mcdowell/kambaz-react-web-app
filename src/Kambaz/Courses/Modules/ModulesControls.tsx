@@ -36,10 +36,14 @@ export default function ModulesControls() {
      </Dropdown>
 
     {/* Liz style more */}
-     <Button
-     id="wd-view-progres"
-     >View Progress</Button>
-     <Button id="wd-collapse-all">Collapse All buttons</Button>
+
+      <Button variant="secondary"  className="ms-2 mb-3" id="wd-view-progres">
+            View Progress
+      </Button>
+      <Button variant="secondary" className="ms-2 mb-3" id="wd-collapse-all">
+           Collapse All buttons
+      </Button>
+    
 
    </div>
 );}

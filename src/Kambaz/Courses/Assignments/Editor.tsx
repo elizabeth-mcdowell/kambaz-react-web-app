@@ -116,7 +116,7 @@ export default function AssignmentEditor() {
                 type="checkbox"
                 value=""
                 id="wd-student-annotation"
-              />
+              /> 
               <label
                 className="form-check-label"
                 htmlFor="wd-student-annotation"

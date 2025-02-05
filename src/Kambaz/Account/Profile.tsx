@@ -20,6 +20,6 @@ export default function Profile() {
       <Link id="wd-signout" to="/Kambaz/Account/Signin" className="btn btn-danger w-100 mt-2">
         Sign out
       </Link>
-    </div>
+    </div> 
   );
 }
