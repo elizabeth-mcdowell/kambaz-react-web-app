@@ -35,7 +35,6 @@ export default function ModulesControls() {
        </Dropdown.Menu>
      </Dropdown>
 
-    {/* Liz style more */}
 
       <Button variant="secondary"  className="ms-2 mb-3" id="wd-view-progres">
             View Progress

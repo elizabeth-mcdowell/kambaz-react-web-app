@@ -32,25 +32,3 @@ export default function Modules() {
                 
                 
       </div>);}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

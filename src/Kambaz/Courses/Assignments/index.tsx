@@ -33,7 +33,7 @@ export default function Assignments() {
           </Button>
         </div>
       </div>
-
+ 
       
       <ListGroup className="rounded-0" id="wd-assignments">
         <ListGroup.Item className="wd-module p-0 mb-5 fs-5">
@@ -63,12 +63,12 @@ export default function Assignments() {
                 <strong>{assignment.title}</strong>
                 <div className="fs-6">
                   <strong className="text-danger">Multiple Modules</strong> |  
-                  <strong> Not available until</strong> {assignment.available} |  
+                  <strong> Not available until</strong> {assignment.availablefrom} |  
                   <strong> Due</strong> {assignment.due} | {assignment.points} pts
                 </div>
               </div>
               <GreenCheckmark />
-              <a href="#/Kambaz/Courses/1234/Assignments/1" className="wd-assignment-link">  <AssignmentsControl /></a>
+              <a href={`#/Kambaz/Courses/${assignment.course}/Assignments/${assignment._id}`} className="wd-assignment-link">  <AssignmentsControl /></a>
               </li>
             ))
             }
