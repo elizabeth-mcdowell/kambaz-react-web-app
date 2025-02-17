@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ListGroup, Button } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
@@ -7,8 +8,11 @@ import AssignmentsControl from "./AssignmentsControl";
 import AssignmentControlButtons from "./AssignmentsControl";
 import GreenCheckmark from "../Modules/GreenCheckmark";
 import { IoMdArrowDropdown } from "react-icons/io";
-
+import * as db from "../../Database";
+import { useParams } from "react-router";
 export default function Assignments() {
+  const {cid} = useParams();
+  const assignments = db.assignments;
   return (
     <div>
       <div className="d-flex flex-row">
@@ -48,103 +52,30 @@ export default function Assignments() {
 
           </div>
 
-      
-          <ListGroup className="wd-lessons rounded-0">
-            
-            <ListGroup.Item className="wd-lesson p-3 ps-1 d-flex align-items-center">
-              <BsGripVertical className="me-2 fs-3" />
-              <MdOutlineAssignment className="fs-3 me-3 text-success" />
-              <div className="d-flex flex-column">
-                <strong>A1 - ENV + HTML</strong>
+          <ul id="wd-assignments" className="wd-lessons list-group rounded-0 m-0 p-0">
+            {assignments
+            .filter((assignment:any) => assignment.course === cid)
+            .map((assignment: any) => (
+              <li className="wd-lesson list-group-item p-3 d-flex align-items-center border-bottom">
+                <BsGripVertical className="me-2 fs-3" /> 
+                <MdOutlineAssignment className="fs-3 me-3 text-success" />
+                <div className="d-flex flex-column">
+                <strong>{assignment.title}</strong>
                 <div className="fs-6">
                   <strong className="text-danger">Multiple Modules</strong> |  
-                  <strong> Not available until</strong> May 6 at 12:00am |  
-                  <strong> Due</strong> May 13 at 11:59pm | 100 pts
+                  <strong> Not available until</strong> {assignment.available} |  
+                  <strong> Due</strong> {assignment.due} | {assignment.points} pts
                 </div>
               </div>
               <GreenCheckmark />
               <a href="#/Kambaz/Courses/1234/Assignments/1" className="wd-assignment-link">  <AssignmentsControl /></a>
-            </ListGroup.Item>
+              </li>
+            ))
+            }
+          </ul>
 
-            <ListGroup.Item className="wd-lesson p-3 ps-1 d-flex align-items-center">
-              <BsGripVertical className="me-2 fs-3" />
-              <MdOutlineAssignment className="fs-3 me-3 text-success" />
-              <div className="d-flex flex-column">
-                <strong>A2 - CSS + BOOTSTRAP</strong>
-                <div className="fs-6">
-                  <strong className="text-danger">Multiple Modules</strong> |  
-                  <strong> Not available until</strong> May 13 at 12:00am |  
-                  <strong> Due</strong> May 20 at 11:59pm | 100 pts
-                </div>
-              </div>
-              <GreenCheckmark />
-              <a href="#/Kambaz/Courses/1234/Assignments/2" className="wd-assignment-link">  <AssignmentsControl /></a>
-            </ListGroup.Item>
-
-            <ListGroup.Item className="wd-lesson p-3 ps-1 d-flex align-items-center">
-              <BsGripVertical className="me-2 fs-3" />
-
-              <MdOutlineAssignment className="fs-3 me-3 text-success" />
-              <div className="d-flex flex-column">
-                <strong>A3 - JAVASCRIPT + REACT</strong>
-                <div className="fs-6">
-                  <strong className="text-danger">Multiple Modules</strong> |  
-                  <strong> Not available until</strong> May 20 at 12:00am |  
-                  <strong> Due</strong> May 27 at 11:59pm | 100 pts
-                </div>
-              </div>
-              <GreenCheckmark />
-              <a href="#/Kambaz/Courses/1234/Assignments/3" className="wd-assignment-link">  <AssignmentsControl /></a>
-            </ListGroup.Item>
-
-          </ListGroup>
         </ListGroup.Item>
       </ListGroup>
     </div>
   );
 }
-
-
-// export default function Assignments() {
-//     return (
-//       <div id="wd-assignments">
-//         <input placeholder="Search for Assignments"
-//                id="wd-search-assignment" />
-//         <button id="wd-add-assignment-group">+ Group</button>
-//         <button id="wd-add-assignment">+ Assignment</button>
-//         <h3 id="wd-assignments-title">
-//           ASSIGNMENTS 40% of Total <button>+</button> </h3>
-//         <ul id="wd-assignment-list">
-//           <li className="wd-assignment-list-item">
-//             <a href="#/Kambaz/Courses/1234/Assignments/1"
-//                className="wd-assignment-link" >
-//               A1 - ENV + HTML
-//             </a> 
-//             </li>
-//             Multiple Modules | <b>Not available until</b> May 6 at 12:00am | <b>Due</b> May 13 at 11:59pm | 100pts
-
-//             <li className="wd-assignment-list-item">
-//             <a href="#/Kambaz/Courses/1234/Assignments/2"
-//                className="wd-assignment-link" >
-//               A2 - CSS + BOOTSTRAP
-//             </a> 
-//             </li>
-//             Multiple Modules | <b>Not available until</b> May 13 at 12:00am | <b>Due</b> May 20 at 11:59pm | 100pts
-            
-
-            
-            
-//             <li className="wd-assignment-list-item">
-//             <a href="#/Kambaz/Courses/1234/Assignments/3"
-//                className="wd-assignment-link" >
-//               A3 - JAVASCRIPT + REACT
-//             </a> 
-//             </li>
-//             Multiple Modules | <b>Not available until</b> May 20 at 12:00am | <b>Due</b> May 27 at 11:59pm | 100pts
-            
-
-        
-//         </ul>
-//       </div>
-//   );}
-  

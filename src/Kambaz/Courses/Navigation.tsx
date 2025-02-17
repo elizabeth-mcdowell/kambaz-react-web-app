@@ -1,19 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function CourseNavigation() {
   const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
+  const {cid} = useParams();
+  const {pathname} = useLocation();
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
       {links.map((link) => (
-        <Link to={`/Kambaz/Courses/:cid/${link}/Home`}
+        <Link 
+        to={`/Kambaz/Courses/${cid}/${link}`}
         id={`wd-course-${link}-link`}
-        className="list-group-item active border border-0" >
-          {link} 
+        className={`list-group-item border border-0 ${pathname === `/Kambaz/Courses/${cid}/${link}` ? "active" : "text-danger"}`}
+        >
+          {link}
         </Link>
       ))}
     </div>
 );}
 
+// old code -- keeping in case i did it wrong...
 // export default function CourseNavigation() {
 //   return (
 //     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
