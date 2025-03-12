@@ -1,13 +1,24 @@
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
 import { Button, Dropdown } from "react-bootstrap";
-export default function ModulesControls() {
+import ModuleEditor from "./ModuleEditor";
+import { useState } from "react";
+export default function ModulesControls(
+  { moduleName, setModuleName, addModule, userRole }:
+  { moduleName: string; setModuleName: (title: string) => void; addModule: () => void;userRole: string; }) {
+   const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
  return (
    <div id="wd-modules-controls" className="text-nowrap">
-     <Button variant="danger" size="lg" className="me-1 float-end" id="wd-add-module-btn">
-       <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-       Module
-     </Button>
+      {userRole === "FACULTY" && (  
+       <>
+        <Button variant="danger" size="lg" className="me-1 float-end" id="wd-add-module-btn" onClick={handleShow}>
+          <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
+          Module
+        </Button>
+  
+ 
      <Dropdown className="float-end me-2">
        <Dropdown.Toggle variant="secondary" size="lg" id="wd-publish-all-btn">
          <GreenCheckmark /> Publish All
@@ -22,8 +33,6 @@ export default function ModulesControls() {
          <Dropdown.Item id="wd-publish-modules-only">
            <GreenCheckmark /> Publish modules only
          </Dropdown.Item>
-         {/* Created two more items with IDs wd-unpublish-all-modules-and-items and wd-unpublish-modules-only with
-             labels Unpublish all modules and items and Unpublish modules only */}
          <Dropdown.Item id="wd-unpublish-all-modules-and-items">
            <GreenCheckmark />  Unpublish all modules and items
             </Dropdown.Item>
@@ -34,7 +43,7 @@ export default function ModulesControls() {
        
        </Dropdown.Menu>
      </Dropdown>
-
+    
 
       <Button variant="secondary"  className="ms-2 mb-3" id="wd-view-progres">
             View Progress
@@ -44,5 +53,9 @@ export default function ModulesControls() {
       </Button>
     
 
+        <ModuleEditor show={show} handleClose={handleClose} dialogTitle="Add Module"
+          moduleName={moduleName} setModuleName={setModuleName} addModule={addModule} />
+      </>
+      )}
    </div>
 );}

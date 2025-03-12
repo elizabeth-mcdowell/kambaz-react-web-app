@@ -10,9 +10,11 @@ import GreenCheckmark from "../Modules/GreenCheckmark";
 import { IoMdArrowDropdown } from "react-icons/io";
 import * as db from "../../Database";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 export default function Assignments() {
   const {cid} = useParams();
   const assignments = db.assignments;
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
   return (
     <div>
       <div className="d-flex flex-row">
@@ -68,7 +70,12 @@ export default function Assignments() {
                 </div>
               </div>
               <GreenCheckmark />
-              <a href={`#/Kambaz/Courses/${assignment.course}/Assignments/${assignment._id}`} className="wd-assignment-link">  <AssignmentsControl /></a>
+              {currentUser?.role === "FACULTY" &&(
+        
+              <a href={`#/Kambaz/Courses/${assignment.course}/Assignments/${assignment._id}`} className="wd-assignment-link">  <AssignmentsControl /></a>)}
+
+
+              
               </li>
             ))
             }
