@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 export default function EventObject() {
   const [event, setEvent] = useState(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
