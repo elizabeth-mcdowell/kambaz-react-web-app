@@ -41,6 +41,10 @@ export default function Assignments() {
           </span>
           <input type="text" className="form-control" placeholder="Search..." />
         </div>
+
+
+        {currentUser?.role === "FACULTY" &&(
+              <>
         <div className="ms-auto d-flex">
           <Button variant="secondary" size="lg" className="ms-2 mb-3">
             <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
@@ -56,6 +60,8 @@ export default function Assignments() {
             Assignment
           </Button>
         </div>
+        </>
+        )}
       </div>
  
       
@@ -91,9 +97,12 @@ export default function Assignments() {
                   <strong> Due</strong> {assignment.due} | {assignment.points} pts
                 </div>
               </div>
+              {currentUser?.role === "FACULTY" &&(
+              <>
               <button className="btn btn-danger btn-sm ms-auto" style={{ maxWidth: "30px" }}onClick={() => handleDelete(assignment._id)}>
                   <FaTrash />
-                </button>
+              </button>
+              </> )}
               <GreenCheckmark />
               {currentUser?.role === "FACULTY" &&(
               <a href={`#/Kambaz/Courses/${assignment.course}/Assignments/${assignment._id}`} className="wd-assignment-link">  <AssignmentsControl /></a>)}
