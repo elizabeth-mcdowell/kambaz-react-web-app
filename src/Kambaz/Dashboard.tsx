@@ -19,6 +19,7 @@ export default function Dashboard({
   course,
   setCourse,
   addNewCourse,
+  deleteCourse,
   updateCourse,
 }: DashboardProps) {
   const navigate = useNavigate();
@@ -116,6 +117,26 @@ export default function Dashboard({
                     <button className="btn btn-primary me-2" onClick={() => navigate(`/Kambaz/Courses/${course._id}`)}>
                       Go
                     </button>
+                    {currentUser?.role === "FACULTY" && (
+                      <>
+                    <button onClick={(event) => {
+                      event.preventDefault();
+                      deleteCourse(course._id);
+                    }} className="btn btn-danger  me-2 float-end"
+                    id="wd-delete-course-click">
+                    Delete
+                   </button>
+
+                    <button id="wd-edit-course-click"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setCourse(course);
+                    }}
+                    className="btn btn-warning me-2 float-end" >
+                    Edit
+                  </button>
+                  </>
+                    )}
                     {currentUser?.role === "STUDENT" &&
                       (isEnrolled ? (
                         <button className="btn btn-danger" onClick={() => handleUnenroll(course._id)}>
