@@ -1,4 +1,4 @@
-[
+const assignments = [
     { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "availablefrom":"May 6 at 12:00am","availableto":"May 13 at 11:59pm", 
     "due":"May 13 at 11:59pm", "points":"100", "description":"Propulsion Assignment is a required.. "},
     { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "availablefrom":"May 13 at 12:00am", "availableto":"May 13 at 11:59pm",
@@ -17,6 +17,6 @@
     "due":"May 20 at 11:59pm", "points":"100","description":"Orbital Calculations is a required.. "},
     { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "availablefrom":"May 20 at 12:00am", "availableto":"May 13 at 11:59pm",
     "due":"May 27 at 11:59pm", "points":"100","description":"Systems Engineering Exam is a required.. "}
-  ]
+  ];
 
-  
+  export default assignments;

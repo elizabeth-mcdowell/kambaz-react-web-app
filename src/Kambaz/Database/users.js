@@ -1,4 +1,4 @@
-[
+const users = [
     {
       "_id": "444",
       "username": "iron_man",
@@ -153,4 +153,6 @@
       "lastActivity": "2020-11-02",
       "totalActivity": "15:32:43"
     }
-  ]
+  ];
+
+  export default users;

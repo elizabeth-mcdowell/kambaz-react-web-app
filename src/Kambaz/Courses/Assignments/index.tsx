@@ -6,12 +6,12 @@ import { BsGripVertical } from "react-icons/bs";
 import { FaPlus, FaTrash } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineAssignment } from "react-icons/md";
-import AssignmentsControl from "./AssignmentsControl";
-import AssignmentControlButtons from "./AssignmentsControl";
-import GreenCheckmark from "../Modules/GreenCheckmark";
+import AssignmentsControl from "./AssignmentsControl.tsx";
+import AssignmentControlButtons from "./AssignmentsControl.tsx";
+import GreenCheckmark from "../Modules/GreenCheckmark.tsx";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useParams } from "react-router";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment } from "./reducer.ts";
 
 export default function Assignments() {
   const { cid } = useParams();
