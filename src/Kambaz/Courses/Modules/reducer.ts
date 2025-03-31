@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from "@reduxjs/toolkit";
-import { modules } from "../../Database";
+//import { database } from "../../Database/index.js";
+import database from "../../Database/index.js";
 import { v4 as uuidv4 } from "uuid";
 const initialState = {
-  modules: modules,
+  modules: database.modules,
 };
 const modulesSlice = createSlice({
   name: "modules",

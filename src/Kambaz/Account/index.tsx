@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Profile from "./Profile";
-import Signin from "./Signin";
+import Profile from "./Profile.tsx";
+import Signin from "./Signin.tsx";
 import { Routes, Route, Navigate } from "react-router";
-import Signup from "./Signup";
+import Signup from "./Signup.tsx";
 //import AccountNavigation from "./Navigation";
 import { useSelector } from "react-redux";
 export default function Account() {
@@ -10,7 +10,8 @@ export default function Account() {
     return (
       <div id="wd-account-screen">
         <table>
-          <tr>
+          <tbody>
+            <tr>
             <td valign="top">
             {/** <AccountNavigation />*/}  
             </td>
@@ -22,7 +23,8 @@ export default function Account() {
                 <Route path="/Signup"  element={<Signup />} />
               </Routes>
             </td>
-          </tr>
+            </tr>
+          </tbody>
         </table>
       </div>
   );}

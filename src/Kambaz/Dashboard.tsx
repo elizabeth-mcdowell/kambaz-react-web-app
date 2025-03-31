@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { enrollStudent, unenrollStudent } from "./Enrollment/reducer";
+import { enrollStudent, unenrollStudent } from "./Enrollment/reducer.ts";
 import { FormControl } from "react-bootstrap";
 
 interface DashboardProps {

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { v4 as uuidv4 } from "uuid";
-import { enrollments } from "../Database/index.ts";
+import database from "../Database/index.js";
 const initialState = {
-  enrollments: enrollments || [],
+  enrollments: database.enrollments || [],
 };
 
 const enrollmentsSlice = createSlice({
