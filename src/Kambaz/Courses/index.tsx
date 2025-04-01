@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import CourseNavigation from "./Navigation";
-import Modules from "./Modules";
-import Home from "./Home";
-import Assignments from "./Assignments";
-import AssignmentEditor from "./Assignments/Editor";
+import CourseNavigation from "./Navigation.tsx";
+import Modules from "./Modules/index.tsx";
+import Home from "./Home/index.tsx";
+import Assignments from "./Assignments/index.tsx";
+import AssignmentEditor from "./Assignments/Editor.tsx";
 import { Navigate, Route, Routes, useParams, useLocation   } from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
-import PeopleTable from "./People/Table";
+import PeopleTable from "./People/Table.tsx";
 import { useSelector } from "react-redux";
 
 export default function Courses() {
