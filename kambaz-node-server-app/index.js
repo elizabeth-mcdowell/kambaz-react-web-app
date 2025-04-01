@@ -8,8 +8,7 @@ import "dotenv/config";
 import CourseRoutes from "./../src/Kambaz/Courses/routes.js";
 import ModuleRoutes from '../src/Kambaz/Courses/Modules/routes.js';
 
-//const allowedOrigins = ['https://elizabeth-kambazapp.netlify.app', 'https://67ec44b58949ea0008310e1c--elizabeth-kambazapp.netlify.app'];
-
+const NETLIFY_URL = "https://elizabeth-kambazapp.netlify.app";
 const app = express();
 
 app.use(
