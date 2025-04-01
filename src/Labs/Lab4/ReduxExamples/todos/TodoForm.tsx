@@ -3,7 +3,7 @@
 //import { useSelector, useDispatch } from "react-redux";
 //import { addTodo, updateTodo, setTodo } from "./todosReducer";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, updateTodo, setTodo } from "./todosReducer.tsx";
+import { addTodo, updateTodo, setTodo } from "./todosReducer.ts";
 import { Button, FormControl, ListGroup } from "react-bootstrap";
 
 export default function TodoForm(
