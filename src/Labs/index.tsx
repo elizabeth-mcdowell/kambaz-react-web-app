@@ -6,7 +6,7 @@ import Lab3 from "./Lab3/index.tsx";
 import Lab4 from "./Lab4/index.tsx";
 import Lab5 from "./Lab5/index.tsx";
 import Lab6 from "./Lab6/index.tsx";
-import store from ".//store/index.tsx"
+import store from "./store/index.ts";
 import { Provider } from "react-redux";
 export default function Labs() {
   return (
