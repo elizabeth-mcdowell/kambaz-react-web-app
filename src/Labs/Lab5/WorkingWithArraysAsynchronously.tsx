@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
-import * as client from "./client";
+import * as client from "./client.ts";
 import { FormControl, ListGroup } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { FaPlusCircle } from "react-icons/fa";

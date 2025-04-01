@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
-import AddPathParameters from "./AddPathParameters";
+import AddPathParameters from "./AddPathParameters.tsx";
 export default function PathParameters() {
  return (
   <div id="wd-path-parameters">

@@ -1,5 +1,4 @@
 import { Button, Col, Form, FormControl, FormGroup, FormLabel, FormSelect, InputGroup, Row } from "react-bootstrap";
-import FormRange from "react-bootstrap/esm/FormRange";
 
 export default function BootstrapForms(){
     return(
@@ -53,7 +52,7 @@ export default function BootstrapForms(){
             <h3>Range</h3>
             <FormGroup controlId="wd-range1">
                 <FormLabel>Example range</FormLabel>
-                <FormRange min="0" max="5" step="0.5" />
+   
             </FormGroup>
             </div>
             
