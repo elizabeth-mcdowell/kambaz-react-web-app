@@ -1,7 +1,7 @@
-import Labs from "./Labs";
+import Labs from "./Labs/index.tsx";
 import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
-import Kambaz from "./Kambaz";
-import store from "./Kambaz/store";
+import Kambaz from "./Kambaz/index.tsx";
+import store from "./Kambaz/store.ts";
 import { Provider } from "react-redux";
 export default function App() {
  return (

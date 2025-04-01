@@ -1,12 +1,12 @@
-import Lab1 from "./Lab1";
+import Lab1 from "./Lab1/index.tsx";
 import { Route, Routes, Navigate } from "react-router";
-import TOC from "./TOC";
-import Lab2 from "./Lab2";
-import Lab3 from "./Lab3";
-import Lab4 from "./Lab4";
-import Lab5 from "./Lab5";
-import Lab6 from "./Lab6";
-import store from ".//store/index"
+import TOC from "./TOC.tsx";
+import Lab2 from "./Lab2/index.tsx";
+import Lab3 from "./Lab3/index.tsx";
+import Lab4 from "./Lab4/index.tsx";
+import Lab5 from "./Lab5/index.tsx";
+import Lab6 from "./Lab6/index.tsx";
+import store from ".//store/index.tsx"
 import { Provider } from "react-redux";
 export default function Labs() {
   return (

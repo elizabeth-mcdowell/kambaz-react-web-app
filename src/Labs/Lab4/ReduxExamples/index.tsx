@@ -1,8 +1,8 @@
 
-import HelloRedux from "./HelloRedux";
-import CounterRedux from "./CounterRedux";
-import AddRedux from "./AddRedux";
-import TodoList from "./todos/TodoList";
+import HelloRedux from "./HelloRedux/index.tsx";
+import CounterRedux from "./CounterRedux/index.tsx";
+import AddRedux from "./AddRedux/index.tsx";
+import TodoList from "./todos/TodoList.tsx";
 
 export default function ReduxExamples() {
   return(

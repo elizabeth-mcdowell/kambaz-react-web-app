@@ -1,16 +1,16 @@
 
-import ArrayStateVariable from "./ArrayStateVariable";
-import BooleanStateVariables from "./BooleanStateVariables";
-import ClickEvent from "./ClickEvent";
-import Counter from "./Counter";
-import DateStateVariable from "./DateStateVariable";
-import EventObject from "./EventObject";
-import ObjectStateVariable from "./ObjectStateVariable";
-import ParentStateComponent from "./ParentsStateComponent";
-import PassingDataOnEvent from "./PassingDataOnEvent";
-import PassingFunctions from "./PassingFunctions";
-import ReduxExamples from "./ReduxExamples";
-import StringStateVariables from "./StringStateVariables";
+import ArrayStateVariable from "./ArrayStateVariable.tsx";
+import BooleanStateVariables from "./BooleanStateVariables.tsx";
+import ClickEvent from "./ClickEvent.tsx";
+import Counter from "./Counter.tsx";
+import DateStateVariable from "./DateStateVariable.tsx";
+import EventObject from "./EventObject.tsx";
+import ObjectStateVariable from "./ObjectStateVariable.tsx";
+import ParentStateComponent from "./ParentsStateComponent.tsx";
+import PassingDataOnEvent from "./PassingDataOnEvent.tsx";
+import PassingFunctions from "./PassingFunctions.tsx";
+import ReduxExamples from "./ReduxExamples/index.tsx";
+import StringStateVariables from "./StringStateVariables.tsx";
 
 export default function Lab4() {
   console.log("Calling Lab 4")

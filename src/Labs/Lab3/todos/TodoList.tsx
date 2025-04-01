@@ -1,5 +1,5 @@
-import TodoItem from "./TodoItem";
-import todos from "./todos.json";
+import TodoItem from "./TodoItem.tsx";
+import todos from "./todos.json" with { type: "json" };
 export default function TodoList() {
  return(
    <>

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch } from "react-redux";
-import { deleteTodo, setTodo } from "./todosReducer";
+import { deleteTodo, setTodo } from "./todosReducer.tsx";
 import { ListGroup, Button } from 'react-bootstrap';
 export default function TodoItem({todo}:{todo: any}) {
   const dispatch = useDispatch();

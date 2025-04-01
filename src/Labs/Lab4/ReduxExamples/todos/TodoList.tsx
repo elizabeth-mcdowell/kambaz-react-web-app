@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import TodoForm from "./TodoForm";
-import TodoItem from "./TodoItem";
+import TodoForm from "./TodoForm.tsx";
+import TodoItem from "./TodoItem.tsx";
 import { useSelector } from "react-redux";
 import { ListGroup } from "react-bootstrap";
 export default function TodoList() {

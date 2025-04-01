@@ -1,24 +1,24 @@
 import "./index.css";
-import ForegroundColors from "./ForegroundColors";
-import BackgroundColors from "./BackgroundColors";
-import Borders from "./Borders";
-import Padding from "./Padding";
-import Margins from "./Margins";
-import Corners from "./Corners";
-import Dimensions from "./Dimensions";
-import Positions from "./Positions";
-import Zindex from "./Zindex";
-import Float from "./Float";
-import GridLayout from "./GridLayout";
-import Flex from "./Flex";
-import ReactIconsSampler from "./ReactIcons";
+import ForegroundColors from "./ForegroundColors.tsx";
+import BackgroundColors from "./BackgroundColors.tsx";
+import Borders from "./Borders.tsx";
+import Padding from "./Padding.tsx";
+import Margins from "./Margins.tsx";
+import Corners from "./Corners.tsx";
+import Dimensions from "./Dimensions.tsx";
+import Positions from "./Positions.tsx";
+import Zindex from "./Zindex.tsx";
+import Float from "./Float.tsx";
+import GridLayout from "./GridLayout.tsx";
+import Flex from "./Flex.tsx";
+import ReactIconsSampler from "./ReactIcons.js";
 import { Container } from "react-bootstrap";
-import BootstrapGrids from "./BootstrapGrids";
-import ScreenSizeLabel from "./ScreenSizeLabel";
-import BootstrapTables from "./BootstrapTables";
-import BootstrapLists from "./BootstrapLists";
-import BootstrapForms from "./BootstrapForms";
-import BootstrapNavigation from "./BootstrapNavigation";
+import BootstrapGrids from "./BootstrapGrids.tsx";
+import ScreenSizeLabel from "./ScreenSizeLabel.tsx";
+import BootstrapTables from "./BootstrapTables.tsx";
+import BootstrapLists from "./BootstrapLists.tsx";
+import BootstrapForms from "./BootstrapForms.tsx";
+import BootstrapNavigation from "./BootstrapNavigation.tsx";
 export default function Lab2() {
   return (
     <Container id="wd-lab2">
