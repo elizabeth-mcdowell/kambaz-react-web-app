@@ -25,3 +25,8 @@ dist-ssr
 .cache
 .jdks
 jdks
+
+
+node_modules
+.env.local
+.env
