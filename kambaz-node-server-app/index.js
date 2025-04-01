@@ -3,10 +3,11 @@ import Hello from "./Hello.js"
 import Lab5 from "./Lab5/index.js";
 import cors from "cors";
 import UserRoutes from "../src/Kambaz/Users/routes.js";
-import session from "express-session";
+//import session from "express-session";
 import "dotenv/config";
 import CourseRoutes from "./../src/Kambaz/Courses/routes.js";
 import ModuleRoutes from '../src/Kambaz/Courses/Modules/routes.js';
+const session = require('express-session');
 
 const app = express();
 
