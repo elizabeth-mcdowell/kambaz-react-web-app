@@ -8,7 +8,7 @@ import "dotenv/config";
 import CourseRoutes from "./../src/Kambaz/Courses/routes.js";
 import ModuleRoutes from '../src/Kambaz/Courses/Modules/routes.js';
 
-const NETLIFY_URL = ['https://elizabeth-kambazapp.netlify.app'];
+//const NETLIFY_URL = ['https://elizabeth-kambazapp.netlify.app'];
 const app = express();
 
 app.use(
@@ -18,16 +18,7 @@ app.use(
     })
    );
 
-//    const sessionOptions = {
-//     secret: process.env.SESSION_SECRET || "kambaz",
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//       sameSite: "lax", 
-//       secure: process.env.NODE_ENV === "production",
-//       httpOnly: true,
-//     }
-// };
+
 
    
 const sessionOptions = {
