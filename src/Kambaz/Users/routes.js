@@ -1,4 +1,7 @@
 import * as dao from "./dao.js";
+import * as courseDao from "../Courses/dao.js";
+import * as enrollmentsDao from "../Enrollment/dao.js";
+import session from "express-session";
 // let currentUser = null;
 export default function UserRoutes(app) {
   const createUser = (req, res) => { };
@@ -6,7 +9,7 @@ export default function UserRoutes(app) {
   const findAllUsers = (req, res) => { };
   const findUserById = (req, res) => { };
 
-  
+
   const updateUser = (req, res) => {
     const userId = req.params.userId;
     const userUpdates = req.body;
@@ -31,10 +34,13 @@ const signup = (req, res) => {
   app.post("/api/users/signup", signup); //not sure if this line is needed
   
   const signin = (req, res) => {
+    console.log("Sign in BEING TRIGGERED");
     const { username, password } = req.body;
     const currentUser = dao.findUserByCredentials(username, password);
+    console.log("current currentUser is:", currentUser);
     if (currentUser) {
       req.session["currentUser"] = currentUser;
+      console.log("Saved current user properly:", req.session["currentUser"]);
       res.json(currentUser);
     } else {
       res.status(401).json({ message: "Unable to login. Try again later." });
@@ -50,6 +56,7 @@ const signup = (req, res) => {
 
 
   const profile = (req, res) => {
+    console.log("Profile const in route working?", req.session)
     const currentUser = req.session["currentUser"];
     if (!currentUser) {
       res.sendStatus(401);
@@ -58,7 +65,46 @@ const signup = (req, res) => {
     res.json(currentUser);
   };
 
+  //Glitch here liz debug
+  const findCoursesForEnrolledUser = (req, res) => {
+    console.log("Called findcourses for enrolled user");
+    console.log("req.session is:", req.session);
+    let { userId } = req.params;
+    console.log("the id is", userId);
+    console.log("req.session is:", req.session);
+    if (userId === "current") {
+      const currentUser = req.session["currentUser"];
+      console.log("Getting current user", currentUser);
+      if (!currentUser) {
+        res.sendStatus(401);
+        console.log("somehow making it here");
+        return;
+      }
+      userId = currentUser._id;
+    }
+    console.log("Got user id", userId);
+    const courses = courseDao.findCoursesForEnrolledUser(userId);
+    console.log("Got courses", courses);
+    res.json(courses);
+  };
 
+  
+  app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
+
+
+
+
+
+
+
+
+  const createCourse = (req, res) => {
+    const currentUser = req.session["currentUser"];
+    const newCourse = courseDao.createCourse(req.body);
+    enrollmentsDao.enrollUserInCourse(currentUser._id, newCourse._id);
+    res.json(newCourse);
+  };
+  app.post("/api/users/current/courses", createCourse);
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);

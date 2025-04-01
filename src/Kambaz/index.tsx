@@ -6,14 +6,17 @@ import Dashboard from "./Dashboard.tsx";
 import KambazNavigation from "./Navigation.tsx";
 import Courses from "./Courses/index.tsx";
 import "./styles.css"
-import * as db from "./Database/index.js";
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import * as db from "./Database/index.js";
+import { useEffect, useState } from "react";
+//import { v4 as uuidv4 } from "uuid";
 import ProtectedRoute from "./Account/ProtectedRoute.tsx";
 import Session from "./Account/Session.tsx";
+import * as userClient from "./Account/client.ts";
+import * as courseClient from "./Courses/client.ts";
+import { useSelector } from "react-redux";
 export default function Kambaz() {
-  const [courses, setCourses] = useState<any[]>(db.courses);
-  const [course, setCourse] = useState<any>({
+  const [courses, setCourses] = useState<any[]>([]);
+  const [course, setCourse] = useState<any>({ //can probs delete this but do after
     _id: "0", 
     name: "New Course", 
     number: "New Number",
@@ -22,14 +25,17 @@ export default function Kambaz() {
     image: "/images/classes/beaker.jpg", 
     description: "New Description"
   });
-  const addNewCourse = () => {
-    const newCourse = { ...course, _id: uuidv4() };
-    setCourses([...courses, newCourse ]);
+  const addNewCourse = async () => {
+    const newCourse = await userClient.createCourse(course);
+    setCourses([ ...courses, newCourse ]);
   };
-  const deleteCourse = (courseId: string) => {
+
+  const deleteCourse = async (courseId: string) => {
+    await courseClient.deleteCourse(courseId);
     setCourses(courses.filter((course) => course._id !== courseId));
   };
-  const updateCourse = () => {
+  const updateCourse = async () => {
+    await courseClient.updateCourse(course);
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
@@ -40,6 +46,21 @@ export default function Kambaz() {
       })
     );
   };
+
+
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const fetchCourses = async () => {
+    try {
+      const courses = await userClient.findMyCourses();
+      setCourses(courses);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchCourses();
+  }, [currentUser]);
+
   return (
     <Session>
     <div id="wd-kambaz">

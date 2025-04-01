@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IoEllipsisVertical } from "react-icons/io5";
-import GreenCheckmark from "./GreenCheckmark";
+import GreenCheckmark from "./GreenCheckmark.tsx";
 import { FaPlus } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";

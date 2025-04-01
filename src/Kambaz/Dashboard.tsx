@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { enrollStudent, unenrollStudent } from "./Enrollment/reducer.ts";
+//import { enrollStudent, unenrollStudent } from "./Enrollment/reducer.ts";
 import { FormControl } from "react-bootstrap";
+//import Database from "../../src/Kambaz/Database/index.js"
 
+// const {enrollments} = Database.enrollments;
 interface DashboardProps {
   courses: any[];
   course: any;
@@ -22,10 +24,11 @@ export default function Dashboard({
   deleteCourse,
   updateCourse,
 }: DashboardProps) {
+
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-  const enrollments = useSelector((state: any) => state.enrollmentsReducer?.enrollments || []);
+  //const enrollments = useSelector((state: any) => state.enrollmentsReducer?.enrollments || []); //deleted liz debug
   const [filteredCourses, setFilteredCourses] = useState<any[]>([]);
   const [showAllCourses, setShowAllCourses] = useState(false);
 
@@ -34,31 +37,17 @@ export default function Dashboard({
   }
 
   useEffect(() => {
-    if (!courses || !enrollments) return;
+    console.log("Courses I should see on dashboard", courses);
+    setFilteredCourses(courses || []);
+  }, [courses]); //changed this -- liz debug incase breaks
 
-    if (currentUser?.role === "STUDENT") {
-      setFilteredCourses(
-        showAllCourses
-          ? courses
-          : courses.filter((course) =>
-              enrollments.some(
-                (enrollment: { user: string; course: string }) =>
-                  enrollment.user === currentUser?._id && enrollment.course === course._id
-              )
-            )
-      );
-    } else {
-      setFilteredCourses(courses);
-    }
-  }, [courses, enrollments, currentUser, showAllCourses]);
+  // const handleEnroll = (courseId: string) => {
+  //   dispatch(enrollStudent({ user: currentUser._id, course: courseId }));
+  // };
 
-  const handleEnroll = (courseId: string) => {
-    dispatch(enrollStudent({ user: currentUser._id, course: courseId }));
-  };
-
-  const handleUnenroll = (courseId: string) => {
-    dispatch(unenrollStudent({ userId: currentUser._id, courseId }));
-  };
+  // const handleUnenroll = (courseId: string) => {
+  //   dispatch(unenrollStudent({ userId: currentUser._id, courseId }));
+  // };
 
   return (
     <div className="p-4" id="wd-dashboard">
@@ -100,10 +89,10 @@ export default function Dashboard({
       <div className="row" id="wd-dashboard-course">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => {
-            const isEnrolled = enrollments.some(
-              (enrollment: { user: string; course: string }) =>
-                enrollment.user === currentUser?._id && enrollment.course === course._id
-            );
+            // const isEnrolled = enrollments.some(
+            //   (enrollment: { user: string; course: string }) =>
+            //     enrollment.user === currentUser?._id && enrollment.course === course._id
+            // );
 
             return (
               <div key={course._id} className="wd-dashboard-course" style={{ width: "300px" }}>
@@ -137,7 +126,7 @@ export default function Dashboard({
                   </button>
                   </>
                     )}
-                    {currentUser?.role === "STUDENT" &&
+                    {/* {currentUser?.role === "STUDENT" &&
                       (isEnrolled ? (
                         <button className="btn btn-danger" onClick={() => handleUnenroll(course._id)}>
                           Unenroll
@@ -146,7 +135,7 @@ export default function Dashboard({
                         <button className="btn btn-success" onClick={() => handleEnroll(course._id)}>
                           Enroll
                         </button>
-                      ))}
+                      ))} */}
                   </div>
                 </div>
               </div>

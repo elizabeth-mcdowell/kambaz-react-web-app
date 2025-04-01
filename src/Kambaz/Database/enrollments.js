@@ -7,6 +7,9 @@ const enrollments = [
     { "_id": "6", "user": "234", "course": "RS102" },
     { "_id": "7", "user": "789", "course": "RS102" },
     { "_id": "8", "user": "890", "course": "RS102" },
-    { "_id": "9", "user": "123", "course": "RS102" }
+    { "_id": "9", "user": "1100102100120102", "course": "RS101" },
+    { "_id": "9", "user": "1100102100120102", "course": "RS105" },
+    { "_id": "9", "user": "1100102100120102", "course": "RS104" }
   ];
+  
   export default enrollments;
