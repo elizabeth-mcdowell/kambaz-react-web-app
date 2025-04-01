@@ -77,7 +77,7 @@ const signup = (req, res) => {
       console.log("Getting current user", currentUser);
       if (!currentUser) {
         res.sendStatus(401);
-        console.log("somehow making it here");
+        console.log("Issue with current user in findcourses for enroll user");
         return;
       }
       userId = currentUser._id;

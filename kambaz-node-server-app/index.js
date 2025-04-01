@@ -8,13 +8,13 @@ import "dotenv/config";
 import CourseRoutes from "./../src/Kambaz/Courses/routes.js";
 import ModuleRoutes from '../src/Kambaz/Courses/Modules/routes.js';
 
-//const NETLIFY_URL = ['https://elizabeth-kambazapp.netlify.app'];
+
 const app = express();
 
 app.use(
     cors({
       credentials: true,
-      origin: process.env.NETLIFY_URL || "http://localhost:5173",
+      origin: process.env.NETLIFY_URL || "http://localhost:5173" || 'https://elizabeth-kambazapp.netlify.app',
     })
    );
 
@@ -29,8 +29,8 @@ const sessionOptions = {
   if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true;
     sessionOptions.cookie = {
-      sameSite: "none", //CHANGE to none for development liz debug liz change
-      secure: true, //CHANGE to trueFOR DEVELOPMENT Liz debug liz change
+      sameSite: "none", //
+      secure: true, //
       domain: process.env.NODE_SERVER_DOMAIN,
     };
   }
