@@ -15,6 +15,7 @@ export default function Signin() {
     console.log(credentials)
     if (!user) return;
     dispatch(setCurrentUser(user));
+    console.log("Current user saved in sign in,", user);
     navigate("/Kambaz/Dashboard");
   };
   return (
