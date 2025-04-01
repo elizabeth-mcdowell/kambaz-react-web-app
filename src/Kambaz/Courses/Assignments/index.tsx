@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ListGroup, Button } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
@@ -11,11 +11,12 @@ import AssignmentControlButtons from "./AssignmentsControl.tsx";
 import GreenCheckmark from "../Modules/GreenCheckmark.tsx";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useParams } from "react-router";
-import { deleteAssignment } from "./reducer.ts";
-
+import {  deleteAssignment, setAssignments } from "./reducer.ts";
+import * as coursesClient from "../client.ts";
 export default function Assignments() {
   const { cid } = useParams();
   const dispatch = useDispatch();
+  //const [assignmentName, ] = useState("");
   const assignments = useSelector((state: any) => state.assignmentReducer?.assignments || [])
     .filter((assignment: any) => assignment.course === cid);
   const { currentUser } = useSelector((state: any) => state.accountReducer);
@@ -31,7 +32,23 @@ export default function Assignments() {
       setAssignmentToDelete(null);
     }
   };
+  //Added for on your own
 
+  const fetchAssignments = async () => {
+    const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+  // const createAssignmentForCourse = async () => {
+  //   if (!cid) return;
+  //   const newAssignment = { name:assignmentName, course: cid };
+  //   const assignment = await coursesClient.createAssignmentForCourse(cid, newAssignment);
+  //   dispatch(addAssignment(assignment));
+  // };
+
+  //
   return (
     <div>
       <div className="d-flex flex-row">
@@ -83,7 +100,7 @@ export default function Assignments() {
 
           <ul id="wd-assignments" className="wd-lessons list-group rounded-0 m-0 p-0">
             {assignments
-            .filter((assignment:any) => assignment.course === cid)
+         
             .map((assignment: any) => (
               <li className="wd-lesson list-group-item p-3 d-flex align-items-center border-bottom">
                 <BsGripVertical className="me-2 fs-3" /> 
