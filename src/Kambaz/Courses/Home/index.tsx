@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from "react-redux";
-import Modules from "../Modules";
-import CourseStatus from "./Status";
+import Modules from "../Modules/index.tsx";
+import CourseStatus from "./Status.tsx";
 export default function Home() {
   
   const { currentUser } = useSelector((state: any) => state.accountReducer);

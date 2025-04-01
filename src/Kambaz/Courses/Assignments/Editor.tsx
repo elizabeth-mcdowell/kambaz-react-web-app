@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Col, Row } from 'react-bootstrap';
 import {useParams } from 'react-router';
-import { addAssignment, updateAssignment } from './reducer';
+import { addAssignment, updateAssignment } from './reducer.ts';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
