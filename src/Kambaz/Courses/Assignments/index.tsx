@@ -13,6 +13,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { useParams } from "react-router";
 import {  deleteAssignment, setAssignments } from "./reducer.ts";
 import * as coursesClient from "../client.ts";
+import * as assignmentsClient from "./client.ts";
 export default function Assignments() {
   const { cid } = useParams();
   const dispatch = useDispatch();
@@ -26,12 +27,19 @@ export default function Assignments() {
     setAssignmentToDelete(assignmentId);
   };
 
-  const confirmDelete = () => {
+  const removeAssignment = async () => {
     if (assignmentToDelete) {
+      await assignmentsClient.deleteAssignment(assignmentToDelete);
       dispatch(deleteAssignment(assignmentToDelete));
-      setAssignmentToDelete(null);
+      setAssignmentToDelete(null);  // Close the modal after deleting
     }
   };
+  // const confirmDelete = () => {
+  //   if (assignmentToDelete) {
+  //     dispatch(deleteAssignment(assignmentToDelete));
+  //     setAssignmentToDelete(null);
+  //   }
+  // };
   //Added for on your own
 
   const fetchAssignments = async () => {
@@ -143,10 +151,10 @@ export default function Assignments() {
                 <p>Are you sure you want to delete this assignment?</p>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setAssignmentToDelete(null)}>
+                <button type="button"  className="btn btn-secondary" onClick={() => setAssignmentToDelete(null)}>
                   Cancel
                 </button>
-                <button type="button" className="btn btn-danger" onClick={confirmDelete}>
+                <button type="button" className="btn btn-danger" onClick={removeAssignment}>
                   Yes, Delete
                 </button>
               </div>
