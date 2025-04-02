@@ -31,7 +31,7 @@ export default function Assignments() {
     if (assignmentToDelete) {
       await assignmentsClient.deleteAssignment(assignmentToDelete);
       dispatch(deleteAssignment(assignmentToDelete));
-      setAssignmentToDelete(null);  // Close the modal after deleting
+      setAssignmentToDelete(null); 
     }
   };
   // const confirmDelete = () => {
@@ -48,7 +48,7 @@ export default function Assignments() {
   };
   useEffect(() => {
     fetchAssignments();
-  }, []);
+  }, );
   // const createAssignmentForCourse = async () => {
   //   if (!cid) return;
   //   const newAssignment = { name:assignmentName, course: cid };

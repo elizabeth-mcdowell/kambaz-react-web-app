@@ -19,6 +19,7 @@ export function updateAssignment(assignmentId, assignmentUpdates) {
     if (assignment) {
       Object.assign(assignment, assignmentUpdates);
     }
+    console.log("At update assignment", assignment);
     return assignment;
 }
 

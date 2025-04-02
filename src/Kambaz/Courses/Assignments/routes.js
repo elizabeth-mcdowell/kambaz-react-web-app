@@ -23,6 +23,7 @@ export default function AssignmentRoutes(app) {
         res.send(status);
     });
 
+    
     // Delete 
     app.delete("/api/assignments/:assignmentId", async (req, res) => {
         const { assignmentId } = req.params;

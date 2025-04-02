@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 //    { "_id": ""title": " "course": "RS103", "availablefrom": "availableto":
 //"due":", "points":"1description":
+import * as AssignmentsClient from "./client.ts";
 export default function AssignmentEditor() {
   const {cid, aid } = useParams();
   const dispatch = useDispatch();
@@ -34,18 +35,17 @@ export default function AssignmentEditor() {
     setAssignment({ ...assignment, [e.target.id]: e.target.value });
   };
   // Save Assignment (Update if exists, Add if new)
-  const handleSave = () => {
+  const handleSave = async (assignment: any) => {
     if (existingAssignment) {
-      dispatch(updateAssignment(assignment)); // Update existing
+      console.log("Editing", assignment) // Update existing
+      await AssignmentsClient.updateAssignment(assignment);
+      dispatch(updateAssignment(assignment));
+
     } else {
-      dispatch(addAssignment({
-        title: assignment.title,
-        course: assignment.course,
-        availablefrom: assignment.availablefrom,
-        due: assignment.due,
-        points: assignment.points,
-        description: assignment.description
-      }));
+      console.log("Create new",assignment);
+      await AssignmentsClient.createAssignment(assignment);
+      dispatch(addAssignment(assignment));
+
        // Create new
     }
   };
@@ -258,7 +258,7 @@ export default function AssignmentEditor() {
         </Button>
       </a>
         <a href={`#/Kambaz/Courses/${cid}/Assignments`} >
-        <Button variant="danger" onClick={handleSave} className="ms-2 mb-3" id="wd-add-group-btn">
+        <Button variant="danger" onClick={() => handleSave(assignment)} className="ms-2 mb-3" id="wd-add-group-btn">
           Save
         </Button>
         </a>

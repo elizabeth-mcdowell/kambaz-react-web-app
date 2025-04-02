@@ -15,18 +15,15 @@ const assignmentsSlice = createSlice({
       state.assignments = action.payload;
     },
 
+
     addAssignment: (state, { payload: assignment }) => {
-          state.assignments.push({
-            _id: uuidv4(),
-            title: assignment.title,
-            course: assignment.course,
-            availablefrom: assignment.availablefrom,
-            due: assignment.due,
-            points: assignment.points,
-            description: assignment.description,
-            availableto: ""
-          });
-      },
+      // Since uuid is generated on the frontend, no need to regenerate here
+      state.assignments.push({
+        ...assignment, // use all assignment data coming from payload
+        _id: uuidv4(), // Ensure _id is generated here if not in payload
+        availableto: assignment.availableto || "", // Make sure this is handled if it's empty
+      });
+    },
       
     deleteAssignment: (state, { payload: assignmentId }) => {
       state.assignments = state.assignments.filter(
