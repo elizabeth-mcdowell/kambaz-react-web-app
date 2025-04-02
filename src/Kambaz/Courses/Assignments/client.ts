@@ -15,7 +15,9 @@ export const getAssignmentById = async (assignmentId: string) => {
 };
 
 export const updateAssignment = async (assignment: any) => {
+  console.log("I am here");
   const { data } = await axios.put(`${ASSIGNMENTS_API}/${assignment._id}`, assignment);
+   console.log("currently in clients after putting this in axios call", data)
   return data;
 };
 

@@ -21,30 +21,31 @@ app.use(
 
 
    //correct for deploying actual
-// const sessionOptions = {
-//     secret: process.env.SESSION_SECRET || "kambaz",
-//     resave: false,
-//     saveUninitialized: false,
-//   };
-//   if (process.env.NODE_ENV !== "development") {
-//     sessionOptions.proxy = true;
-//     sessionOptions.cookie = {
-//       sameSite: "none", //
-//       secure: true, //
-//       domain: process.env.NODE_SERVER_DOMAIN,
-//     };
-//   }
-
-   const sessionOptions = {
+const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kambaz",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      sameSite: "lax", 
-      secure: process.env.NODE_ENV === "production",
-      httpOnly: true,
-    }
-};
+  };
+  if (process.env.NODE_ENV !== "development") {
+    sessionOptions.proxy = true;
+    sessionOptions.cookie = {
+      sameSite: "none", //
+      secure: true, //
+      domain: process.env.NODE_SERVER_DOMAIN,
+    };
+  }
+
+//when working local
+  //  const sessionOptions = {
+  //   secret: process.env.SESSION_SECRET || "kambaz",
+  //   resave: false,
+  //   saveUninitialized: false,
+  //   cookie: {
+  //     sameSite: "lax", 
+  //     secure: process.env.NODE_ENV === "production",
+  //     httpOnly: true,
+  //   }
+//};
 
 app.use(session(sessionOptions));
 app.use(express.json());    //After config cors and session but before
