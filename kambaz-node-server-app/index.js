@@ -19,7 +19,7 @@ const app = express();
 app.use(
     cors({
       credentials: true,
-      origin: process.env.NETLIFY_URL || process.env.NETLIFY_URL_A6 || "http://localhost:5173" || 'https://elizabeth-kambazapp.netlify.app' || 'https://kambaz-a6.netlify.app',
+      origin: process.env.NETLIFY_URL || "http://localhost:5173" || 'https://kambaz-a6.netlify.app',
     })
    );
 

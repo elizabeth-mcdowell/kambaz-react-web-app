@@ -67,8 +67,11 @@ const signup = async  (req, res) => {
   const signin = async (req, res) => {
     console.log("Sign in BEING TRIGGERED");
     const { username, password } = req.body;
+
     const currentUser = await dao.findUserByCredentials(username, password);
+    console.log("Session is", req.session);
     console.log("current currentUser is:", currentUser);
+
     if (currentUser) {
       req.session["currentUser"] = currentUser;
       console.log("Saved current user properly:", req.session["currentUser"]);
