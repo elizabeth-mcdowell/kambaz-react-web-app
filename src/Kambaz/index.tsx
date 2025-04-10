@@ -14,6 +14,7 @@ import Session from "./Account/Session.tsx";
 import * as userClient from "./Account/client.ts";
 import * as courseClient from "./Courses/client.ts";
 import { useSelector } from "react-redux";
+import Users from "./Account/Users.tsx";
 export default function Kambaz() {
   const [courses, setCourses] = useState<any[]>([]);
   const [course, setCourse] = useState<any>({ //can probs delete this but do after
@@ -69,6 +70,8 @@ export default function Kambaz() {
         <Routes>
           <Route path="/" element={<Navigate to="Account" />} />
           <Route path="/Account/*" element={<Account />} />
+          <Route path="/Users/*" element={<Users />} /> 
+          {/* {liz added} */}
           <Route path="/Dashboard" element={
             <ProtectedRoute>
               <Dashboard

@@ -6,8 +6,9 @@ import Assignments from "./Assignments/index.tsx";
 import AssignmentEditor from "./Assignments/Editor.tsx";
 import { Navigate, Route, Routes, useParams, useLocation   } from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
-import PeopleTable from "./People/Table.tsx";
+//import PeopleTable from "./People/Table.tsx"; liz change - was og users
 import { useSelector } from "react-redux";
+import Users from "../Account/Users.tsx";
 
 export default function Courses() {
   
@@ -37,7 +38,7 @@ export default function Courses() {
               <Route path="Assignments" element={<Assignments />} />
               <Route path="Assignments/:aid" element={ <AssignmentEditor />}/>
               <Route path="Grades" element={ "Grades - make page"}/>
-              <Route path="People" element={<PeopleTable />} />
+              <Route path="People" element={<Users />} />
             </Routes>
             </div></div>
     </div>

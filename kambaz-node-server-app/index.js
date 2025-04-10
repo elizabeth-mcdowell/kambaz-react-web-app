@@ -8,7 +8,10 @@ import "dotenv/config";
 import CourseRoutes from "./../src/Kambaz/Courses/routes.js";
 import ModuleRoutes from '../src/Kambaz/Courses/Modules/routes.js';
 import AssignmentRoutes from '../src/Kambaz/Courses/Assignments/routes.js';
+import mongoose from "mongoose";
 
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+mongoose.connect(CONNECTION_STRING);
 const app = express();
 
 app.use(
@@ -36,16 +39,16 @@ const sessionOptions = {
   }
 
 //when working local
-  //  const sessionOptions = {
-  //   secret: process.env.SESSION_SECRET || "kambaz",
-  //   resave: false,
-  //   saveUninitialized: false,
-  //   cookie: {
-  //     sameSite: "lax", 
-  //     secure: process.env.NODE_ENV === "production",
-  //     httpOnly: true,
-  //   }
-//};
+//    const sessionOptions = {
+//     secret: process.env.SESSION_SECRET || "kambaz",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       sameSite: "lax", 
+//       secure: process.env.NODE_ENV === "production",
+//       httpOnly: true,
+//     }
+// };
 
 app.use(session(sessionOptions));
 app.use(express.json());    //After config cors and session but before

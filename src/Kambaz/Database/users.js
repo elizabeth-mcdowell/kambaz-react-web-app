@@ -112,20 +112,6 @@ const users = [
       "totalActivity": "21:32:43"
     },
     {
-      "_id": "777",
-      "username": "ada",
-      "password": "123",
-      "firstName": "Ada",
-      "lastName": "Lovelace",
-      "email": "ada@lovelace.com",
-      "dob": "1815-12-15",
-      "role": "ADMIN",
-      "loginId": "002143650S",
-      "section": "S101",
-      "lastActivity": "1852-11-27",
-      "totalActivity": "21:32:43"
-    },
-    {
       "_id": "123",
       "username": "student",
       "password": "student",
