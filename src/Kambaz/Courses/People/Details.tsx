@@ -5,7 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useParams, useNavigate } from "react-router";
 import { FaPencil } from "react-icons/fa6";
 import { FaCheck, FaUserCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import * as client from "../../Account/client.ts";
 import { FormControl } from "react-bootstrap";
 export default function PeopleDetails() {
