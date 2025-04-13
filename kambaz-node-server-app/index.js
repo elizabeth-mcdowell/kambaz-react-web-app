@@ -16,12 +16,23 @@ mongoose.connect(CONNECTION_STRING)
   .catch(err => console.error("MongoDB connection error:", err));
 const app = express();
 
+const allowedOrigins = [
+  "https://kambaz-a6.netlify.app",
+  "http://localhost:5173"
+];
+
 app.use(
-    cors({
-      credentials: true,
-      origin: process.env.NETLIFY_URL || "http://localhost:5173" || 'https://kambaz-a6.netlify.app',
-    })
-   );
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS -- liz debug"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 
 
@@ -36,7 +47,7 @@ const sessionOptions = {
     sessionOptions.cookie = {
       sameSite: "none", //
       secure: true, //
-      domain: process.env.NODE_SERVER_DOMAIN,
+      domain: "kambaz-react-web-app-a6.onrender.com", //process.env.NODE_SERVER_DOMAIN
     };
   }
 
