@@ -27,7 +27,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS -- liz debug"));
+        callback(new Error("Not allowed by CORS -- Liz"));
       }
     },
     credentials: true,
@@ -47,7 +47,7 @@ const sessionOptions = {
     sessionOptions.cookie = {
       sameSite: "none", //
       secure: true, //
-      domain: "kambaz-react-web-app-a6.onrender.com", //process.env.NODE_SERVER_DOMAIN
+      domain: process.env.NODE_SERVER_DOMAIN,
     };
   }
 
