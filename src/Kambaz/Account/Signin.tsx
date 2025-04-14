@@ -12,7 +12,7 @@ export default function Signin() {
   const navigate = useNavigate();
   const signin = async() => {
     const user =  await client.signin(credentials);
-    console.log(credentials)
+    console.log("Credentials are", credentials);
     if (!user) return;
     dispatch(setCurrentUser(user));
     console.log("Current user saved in sign in,", user);
