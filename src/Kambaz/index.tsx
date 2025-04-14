@@ -15,6 +15,8 @@ import * as userClient from "./Account/client.ts";
 import * as courseClient from "./Courses/client.ts";
 import { useSelector } from "react-redux";
 import Users from "./Account/Users.tsx";
+
+
 export default function Kambaz() {
   const [courses, setCourses] = useState<any[]>([]);
   const [course, setCourse] = useState<any>({ //can probs delete this but do after
@@ -52,7 +54,7 @@ export default function Kambaz() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const fetchCourses = async () => {
     try {
-      const courses = await userClient.findMyCourses();
+      const courses = await courseClient.fetchAllCourses();
       setCourses(courses);
     } catch (error) {
       console.error(error);
