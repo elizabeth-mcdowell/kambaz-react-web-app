@@ -3,6 +3,19 @@ import * as modulesDao from "./Modules/dao.js";
 import Database from "../Database/index.js";
 import * as assignmentsDao from "./Assignments/dao.js";
 export default function CourseRoutes(app) {
+  // app.get("/api/courses", async (req, res) => {
+  //   console.log("Req",req);
+  //   console.log("Res", res);
+  //   const course = await dao.createCourse(req.body);
+  //   res.json(course);
+ 
+  // });
+
+  app.get("/api/courses", async (req, res) => {
+    const courses = await dao.findAllCourses();
+    res.send(courses);
+  });
+ 
 
 //Adding for do on your own
 app.get("/api/courses/:courseId/assignments", async(req, res) => {
@@ -42,12 +55,6 @@ app.post("/api/courses/:courseId/assignments", (req, res) => {
     };
     const newModule = modulesDao.createModule(module);
     res.send(newModule);
-  });
-  app.get("/api/courses", async (req, res) => {
-    console.log("Req",req);
-    console.log("Res", res);
-    const courses = await dao.findAllCourses();
-    res.send(courses);
   });
 
 
