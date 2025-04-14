@@ -11,7 +11,10 @@ import AssignmentRoutes from '../src/Kambaz/Courses/Assignments/routes.js';
 import mongoose from "mongoose";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
-mongoose.connect(CONNECTION_STRING)
+mongoose.connect(CONNECTION_STRING, {
+  serverSelectionTimeoutMS: 50000,
+
+})
   .then(() => console.log("MongoDB connected")) //debugging mongo connection
   .catch(err => console.error("MongoDB connection error:", err));
 const app = express();
