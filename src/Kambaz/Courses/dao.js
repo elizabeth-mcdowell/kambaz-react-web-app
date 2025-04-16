@@ -4,7 +4,7 @@ import model from "./model.js";
 export function findAllCourses() {
   return Database.courses;
   // console.log("In find all courses", model.find());
-  // return model.find();
+  // return model.find();v//undid find all 
 }
 export function findCoursesForEnrolledUser(userId) {
     console.log("correctly calling find courses for enrolled user in courses/dao")
