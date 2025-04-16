@@ -2,9 +2,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import model from "./model.js";
 export function findAllCourses() {
-  //return Database.courses;
-  console.log("In find all courses", model.find());
-  return model.find();
+  return Database.courses;
+  // console.log("In find all courses", model.find());
+  // return model.find();
 }
 export function findCoursesForEnrolledUser(userId) {
     console.log("correctly calling find courses for enrolled user in courses/dao")
